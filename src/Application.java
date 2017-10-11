@@ -1,28 +1,37 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+
+import java.io.IOException;
+
+class Test {
+
+    public void run()throws IOException{
+        int code = 0;
+
+        if (code != 0){
+            throw new IOException("Error in Test class");
+        }
+        System.out.println("ok");
+    }
+
+
+}
+
+
+
 
 public class Application {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args){
 
-        // READ FILES
-        String fileName = "/Users/joseluisclares/Documents/EXAMPLE.txt";
-        int count =0;
-        File file = new File(fileName);
+        Test t1 = new Test();
 
-        Scanner readFile = new Scanner(file);
-        count++;
-        System.out.println(count+ ": "+readFile.nextInt());
-        readFile.nextLine();
-        count++;
-
-        while (readFile.hasNextLine()){
-            System.out.println(count+ ": "+readFile.nextLine());
-            count++;
+        try {
+            t1.run();
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
-        readFile.close();
+
     }
 
 }
