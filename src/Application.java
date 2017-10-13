@@ -1,20 +1,17 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class Application {
 
     public static void main(String[] args){
 
-        File file = new File ("/Users/joseluisclares/Documents/EXAMPLE.txtd");
-
-        try (FileReader fr = new FileReader(file)){
-            System.out.println("File open");
+        try (BufferedWriter br = new BufferedWriter(new FileWriter(new File("/Users/joseluisclares/Documents/EXAMPLE.txtd")))) {
+            br.write("testing writing file");
+            br.newLine();
+            br.write("using try with resources");
+            br.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 }
